@@ -70,21 +70,29 @@ game()
 
 abrir = open("pf_sfii_data.txt")
 cont= abrir.read()
-print(cont)
+lista = list(cont)
+for index, value in enumerate(lista):
+    if value == "\n":
+      lista[index] = ""
 
 
+lista1 = lista[0::2]
+results = map(int, lista1)
+results1 = list(map(int, results))
+laSuma = 0
+for i in results1:
+    laSuma = laSuma + i
+laSuma
+print("number of guesses:", laSuma)
  
- 
+
 file = open("pf_sfii_data.txt","r") 
 Counter = 0
-  
 Content = file.read() 
 CoList = Content.split("\n") 
-  
 for i in CoList: 
     if i: 
         Counter += 1
-          
 print("This is the number of acerts : ", Counter) 
 
 abrir.close()
